@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<!-- This makes it possible to specify java.net.SocketAddress values (e.g. :1234 below) as Strings.
+		They will be converted into java.net.InetSocketAddress objects by Spring.  -->
+	<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="customEditors">
+			<map>
+				<entry key="java.net.SocketAddress">
+					<bean class="org.apache.mina.integration.beans.InetSocketAddressEditor" />
+				</entry>
+				<entry key="java.util.concurrent.TimeUnit">
+					<bean class="org.apache.mina.integration.beans.EnumEditor">
+						<constructor-arg name="enumType" value="java.util.concurrent.TimeUnit" />
+					</bean>
+				</entry>
+				<entry key="org.apache.mina.filter.logging.LogLevel">
+					<bean class="org.apache.mina.integration.beans.EnumEditor">
+						<constructor-arg name="enumType" value="org.apache.mina.filter.logging.LogLevel" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+	<!-- the IoFilters -->
+
+	<bean id="executorFilter" class="org.apache.mina.filter.executor.ExecutorFilter" >
+		<constructor-arg name="corePoolSize" value="5" />
+		<constructor-arg name="maximumPoolSize" value="16" />
+		<constructor-arg name="keepAliveTime" value="30" />
+		<constructor-arg name="unit" value="seconds" />
+	</bean>
+
+	<bean id="mdcInjectionFilter" class="org.apache.mina.filter.logging.MdcInjectionFilter">
+		<constructor-arg value="remoteAddress"/>
+	</bean>
+
+	<bean id="codecFilter" class="org.apache.mina.filter.codec.ProtocolCodecFilter">
+		<constructor-arg>
+			<bean class="org.apache.mina.filter.codec.serialization.ObjectSerializationCodecFactory" />
+		</constructor-arg>
+	</bean>
+
+	<!-- LogLevel: TRACE, DEBUG, INFO, WARN, ERROR, NONE -->
+	<bean id="loggingFilter" class="org.apache.mina.filter.logging.LoggingFilter">
+		<property name="exceptionCaughtLogLevel" value="WARN" />
+		<property name="messageSentLogLevel" value="DEBUG" />
+		<property name="messageReceivedLogLevel" value="DEBUG" />
+		<property name="sessionCreatedLogLevel" value="DEBUG" />
+		<property name="sessionOpenedLogLevel" value="DEBUG" />
+		<property name="sessionIdleLogLevel" value="DEBUG" />
+		<property name="sessionClosedLogLevel" value="DEBUG" />
+	</bean>
+
+	<bean id="keepAlive" class="org.apache.mina.filter.keepalive.KeepAliveFilter">
+		<constructor-arg name="messageFactory">
+			<bean class="com.ifugle.asmg.amtp.DefaultKeepAliveMessageFactory" />
+		</constructor-arg>
+		<property name="requestInterval" value="30" />
+	</bean>
+
+	<!-- The non-SSL filter chain. -->
+	<bean id="filterChainBuilder" class="org.apache.mina.core.filterchain.DefaultIoFilterChainBuilder">
+		<property name="filters">
+			<map>
+				<entry key="executor" value-ref="executorFilter"/>
+				<entry key="mdcInjectionFilter" value-ref="mdcInjectionFilter"/>
+				<entry key="codecFilter" value-ref="codecFilter"/>
+				<entry key="loggingFilter" value-ref="loggingFilter"/>
+				<entry key="keepAlive" value-ref="keepAlive"/>
+			</map>
+		</property>
+	</bean>
+
+	<!-- The IoAcceptor which binds to local address -->
+	<bean id="messageUserAgent" class="com.ifugle.asmg.mua.DefaultMessageUserAgent" init-method="start" destroy-method="stop">
+		<constructor-arg name="startup" value="true" />
+		<constructor-arg name="initialCapacity" value="1024" />
+		<property name="defaultLocalAddress" value=":22401" />
+		<property name="connectTimeoutMillis" value="10000" />
+		<property name="readBufferSize" value="8192" />
+		<property name="receiveBufferSize" value="8192" />
+		<property name="sendBufferSize" value="8192" />
+		<property name="bothIdleTime" value="10" />
+		<property name="reuseAddress" value="true" />
+		<property name="keepAlive" value="true" />
+		<property name="filterChainBuilder" ref="filterChainBuilder" />
+	</bean>
+
+</beans>

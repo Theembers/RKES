@@ -1,0 +1,176 @@
+/*******************************reset*********************/
+html, body, ul, li, p, div, ol, span, img, a, form, input, em, i, b, dl,
+	dt, dd, table, tr, td, strong, h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+}
+.top{
+	background: #4F4F4F;
+	height: 88px;
+}
+.foot{
+	background: #4F4F4F;
+	height: 88px;
+	margin-top: 75px;
+}
+body {
+	font-size: 12px;
+	overflow-x: hidden;
+	color: #444;
+	background: #FFB800;
+	font-family: microsoft yahei;
+}
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+
+.clearfix {
+	display: inline-block;
+}
+
+html .clearfix {
+	display: block;
+}
+
+* html .clearfix {
+	height: 1%;
+}
+
+a {
+	text-decoration: none;
+	color: #333;
+	cursor: pointer
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+img {
+	border: 0;
+	font-size: 0px;
+}
+
+input {
+	border: 0;
+	background: none;
+}
+
+ul, li {
+	list-style-type: none;
+}
+
+.clear {
+	clear: both;
+}
+
+.pr {
+	position: relative;
+}
+
+.pa {
+	position: absolute;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.col {
+	color: #347fdb;
+}
+
+em, i {
+	font-style: normal;
+}
+
+em {
+	font-weight: lighter;
+}
+/*****************************login*************************************/
+.wrap_login {
+	padding-top: 70px;
+	width: 1000px;
+	margin: 0 auto;
+	height: 362px;
+}
+
+.login_out {
+	background: url(../images/loginbg.png) no-repeat 20px center;
+	height: 362px;
+}
+
+.login_inner {
+	margin-right: 20px;
+	width: 465px;
+	height: 305px;
+	border: 1px solid #4f4f4f;
+	border-top: 4px solid #4A4C4F;
+	margin-top: 28px;
+}
+
+.login_inner h4 {
+	padding: 20px 20px 10px 20px;
+	font-size: 18px;
+}
+
+.login_line p {
+	padding: 20px 0 0 20px;
+}
+
+.login_line p:nth-of-type(2) {
+	padding: 10px 0 0 20px
+}
+
+.login_line p input.login_txt {
+	background: url(../images/login_icon.png) no-repeat;
+	width: 425px;
+	height: 43px;
+	border: 1px solid #4f4f4f;
+	font-family: microsoft yahei;
+	text-indent: 40px;
+	color: #4f4f4f;
+	line-height: 43px;
+}
+
+.login_line p input.user_txt {
+	background-position: 6px 0;
+}
+
+.login_line p input.pwd_txt {
+	background-position: 6px -43px;
+}
+
+.login_line p.error {
+	padding: 0 0 0 20px;
+	font-size: 14px;
+	color: #c00;
+	visibility: show;
+	line-height: 1.8
+}
+
+.login_line p.last_p {
+	padding: 25px 0 0 15px;
+	color: #c00;
+}
+
+.login_line p.last_p .login_btn {
+	width: 437px;
+	height: 55px;
+	background: #4F4F4F;
+	text-align: center;
+	color: #ddd;
+	font-family: microsoft yahei;
+	font-size: 16px;
+	letter-spacing:25px;
+}

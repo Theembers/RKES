@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+org.eclipse.wst.ws.service.policy.projectEnabled=false
+org.eclipse.wst.ws.service.policy.ui.servicepols.wsiprofilecomp.wsiap.default.value.key=org.eclipse.wst.sug.suggest
+org.eclipse.wst.ws.service.policy.ui.servicepols.wsiprofilecomp.wsissbp.default.value.key=org.eclipse.wst.sug.suggest

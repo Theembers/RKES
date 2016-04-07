@@ -1,0 +1,93 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Constants -->
+    <constant name="struts.devMode" value="false"/>
+    <constant name="struts.configuration.xml.reload" value="true"/>
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <constant name="struts.objectFactory" value="spring"/>
+    <constant name="struts.custom.i18n.resources" value="default-messages,default-exception,weixin"/>
+    <constant name="struts.multipart.maxSize" value="20971520"/>
+    <constant name="struts.ui.theme" value="simple"/>
+    <constant name="struts.action.extension" value="do"/>
+   
+
+   <package name="default" namespace="/" extends="json-default" abstract="true">
+	 
+	    <!-- 定义默认跳转类型 -->
+	 	<result-types>
+			 <result-type name="freemarker" class="org.apache.struts2.views.freemarker.FreemarkerResult" default="true"/>
+			 <result-type name="xml" class="com.wke.webapp.comm.struts.result.XMLResult"/>
+			 <result-type name="file" class="com.wke.webapp.comm.struts.result.OutputStreamResult"/>
+			 <result-type name="native" class="com.wke.webapp.comm.struts.result.NativeResult"/>
+		</result-types>
+		
+		<interceptors>
+			<interceptor name="specialcharacter" class="com.wke.webapp.comm.struts.interceptor.IllegalCharacterInterceptor"></interceptor>
+			<interceptor name="customerexception" class="com.wke.webapp.comm.struts.interceptor.ExceptionMappingWapperInterceptor" />
+			<interceptor name="principle" class="com.wke.webapp.comm.struts.interceptor.PrincipleInterceptor" />
+			
+			<interceptor-stack name="customerStack">
+				<interceptor-ref name="customerexception">
+					<param name="logEnabled" >true</param>
+					<param name="logLevel" >error</param>
+					<param name="exceptionNames">
+						com.wke.webapp.comm.exception.InsertZeroException,
+						com.wke.webapp.comm.exception.UpdateZeroException,
+						com.wke.webapp.comm.exception.DeleteZeroException
+					</param>
+				</interceptor-ref>
+				<interceptor-ref name="specialcharacter"/>
+				<interceptor-ref name="principle">
+					<param name="ignoreUrlSet">
+						login/init.do,login/login.do,login/logout.do,
+						/oauth.do,/home/init.do,/dtgl/dt002,/zhbd/
+					</param>
+				</interceptor-ref>
+                <interceptor-ref name="alias"/>
+                <interceptor-ref name="servletConfig"/>
+                <interceptor-ref name="i18n"/>
+                <interceptor-ref name="prepare"/>
+                <interceptor-ref name="chain"/>
+                <interceptor-ref name="scopedModelDriven"/>
+                <interceptor-ref name="modelDriven"/>
+                <interceptor-ref name="fileUpload"/>
+                <interceptor-ref name="checkbox"/>
+                <interceptor-ref name="multiselect"/>
+                <interceptor-ref name="staticParams"/>
+                <interceptor-ref name="actionMappingParams"/>
+                <interceptor-ref name="params">
+                  	<param name="excludeParams">^dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,^parameters\..*,^action:.*,^method:.*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError"/>
+                <interceptor-ref name="annotationWorkflow"/>
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="jsonValidation"/>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="debugging"/>
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="customerStack"/>
+		
+		<!-- 全局跳转页 -->
+		<global-results>
+			<result name="error">/WEB-INF/Error.ftl</result>
+			<result name="login" type="redirect">
+				<param name="location">/login/init.do?status=nologin</param>
+			</result>
+  		</global-results>
+  		
+  		<global-exception-mappings>
+  			<exception-mapping exception="java.lang.Exception" result="error"/>
+    	</global-exception-mappings>
+		
+	</package>
+
+
+</struts>

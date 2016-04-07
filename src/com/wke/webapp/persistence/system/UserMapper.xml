@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wke.webapp.persistence.system.UserMapper">
+
+  <insert id="addAccount"  parameterType="com.wke.webapp.bo.system.UserBO" useGeneratedKeys="true" keyProperty="id">
+    INSERT INTO T_XT_USER 
+    (USERNAME, PWD, RNAME, EMAIL, PHONE, ZCSJ, SFYX) 
+    VALUES 
+    (#{username},#{password},#{rname},#{email},#{phone},NOW(),1)  
+  </insert>
+  
+  <insert id="addUserRole" parameterType="com.wke.webapp.bo.system.UserRoleBO">
+  	INSERT INTO T_XT_USER_JS
+  	<trim prefix="values" suffixOverrides=",">
+    	<foreach collection="jsid" item="jsid" separator=",">
+        	(#{id},#{jsid},now())
+        </foreach>
+    </trim>
+  </insert>
+  
+  <select id="getUserContent" resultType="com.wke.webapp.bo.system.UserBO" parameterType="com.wke.webapp.bo.system.UserBO" >
+  	SELECT id, username, rname, email, phone, zcsj
+  	FROM T_XT_USER
+  	WHERE SFYX = '1' AND username != 'root'
+  	<if test="username != null and username != '' ">
+	 	AND USERNAME like #{username}
+	</if>
+	<if test="rname != null and rname != '' ">
+	 	AND RNAME like #{rname}
+	</if>
+  	LIMIT #{from}, #{to}
+  </select>
+  
+  <select id="getUserCnt" resultType="int" parameterType="com.wke.webapp.bo.system.UserBO" >
+  	SELECT COUNT(0)
+  	FROM T_XT_USER
+  	WHERE SFYX = '1' AND username != 'root'
+  	<if test="username != null and username != '' ">
+	 	AND USERNAME like #{username}
+	</if>
+	<if test="rname != null and rname != '' ">
+		 AND RNAME like #{rname}
+	</if>
+  </select>
+  
+  <select id="getRoleList" resultType="com.wke.webapp.bo.system.YhRole">
+  	SELECT id as jsid, jsmc FROM T_XT_JS
+  </select>
+  
+  <delete id="delUser" parameterType="int">
+  	DELETE FROM T_XT_USER WHERE ID = #{id}
+  </delete>
+  
+  <delete id="delUserRole" parameterType="int">
+  	DELETE FROM T_XT_USER_JS WHERE USERID = #{id}
+  </delete>
+  
+  <select id="getUserDetail" parameterType="int" resultType="com.wke.webapp.bo.system.UserBO">
+  	SELECT id,username,rname,email,phone
+  	FROM T_XT_USER
+  	WHERE ID = #{id};
+  </select>
+  
+  <select id="getUserRole" parameterType="int" resultType="int">
+  	SELECT jsid
+  	FROM T_XT_USER_JS
+  	WHERE USERID = #{id};
+  </select>
+  
+  <update id="updateUser" parameterType="com.wke.webapp.bo.system.UserBO">
+	UPDATE T_XT_USER
+	SET
+	RNAME = #{rname},
+	EMAIL = #{email},
+	PHONE = #{phone},
+	ZCSJ = now()
+	WHERE ID=#{id}
+  </update>
+  
+  <select id="checkUsername" parameterType="string" resultType="int">
+  	SELECT COUNT(0)
+  	FROM T_XT_USER
+  	WHERE USERNAME = #{username};
+  </select>
+  
+  <update id="updateUserPwd">
+    UPDATE T_XT_USER
+    SET
+    PWD = #{userpwd}
+    WHERE USERNAME = #{userName}
+  </update>
+</mapper>

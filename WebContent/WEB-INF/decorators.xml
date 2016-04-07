@@ -1,0 +1,16 @@
+<decorators defaultdir="/WEB-INF/decorators">
+   <!-- 例外页面 -->
+    <excludes>
+    	<pattern>/styles/*</pattern>
+        <pattern>/images/*</pattern>
+        <pattern>/scripts/*</pattern>
+        <pattern>/template/*</pattern>
+    	<pattern>/login/*</pattern>
+        <pattern>/oauth.do*</pattern>             
+    </excludes>
+    
+	<decorator name="frame" page="/WEB-INF/decorators/decorator.ftl">
+		<pattern>/*</pattern>
+	</decorator>
+	
+</decorators>

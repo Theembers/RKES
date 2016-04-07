@@ -1,0 +1,98 @@
+/************************************************/
+.bind_tab li{float:left;width:50%;height:65px;font-size:20px;text-align:center;line-height:65px;}
+.bind_tab li a.bd_dt,.bind_tab li a:hover{color:#1d7fea;display:block;height:65px;background:url(../images/bind-hbg.jpg) repeat-x 0 bottom; cursor:pointer;}
+.bind_img {clear:both;text-align:center;background:#2e4b6d url(../images/bind-img.jpg) no-repeat center 0;height:160px;width:100%;}
+.bind_wrapper h3.bind_ad{padding:14px 5% 0 5%;line-height:29px;font-size:20px;font-weight:lighter;}
+.bind_wrapper h3.bind_ad span{color:#5577af;}
+.bind_login{padding:0 5%;}
+.bind_login .b_login_line{padding-top:17px;}
+.bind_login .b_login_line input.bind_txt{border:1px solid #ddd;border-radius:3px;background:#fff url(../images/login_icon_2.png) no-repeat;width:100%;height:50px;text-indent:60px;font-family:microsoft yahei;font-size:18px;color:#8d8c8c;line-height:50px;}
+.bind_login .b_login_line input.b_user_txt{background-position:0 -13px;}
+.bind_login .b_login_line input.b_pwd_txt{background-position:0 -94px;}
+.bind_login .b_login_line .bind_btn{background:#1d7fea;height:44px;line-height:44px;text-align:center;color:#fff;font-family:microsoft yahei;width:100%;font-size:22px;margin-top:10px;cursor:pointer;border-radius:5px;}
+.bind_login .b_login_line .bind_btn:hover{font-weight:bold;}
+
+/***********************************/
+.bd_info{padding:17px 5%;}
+.bd_left {width:15%;}
+.bd_left dl{float:right;padding-right:20%;}
+.bd_left dl dt{text-align:right;}
+.bd_left dl dd{font-size:18px;line-height:1.6;text-align:right;padding-top:5px;color:#888;}
+.bd_left dl dd b{color:#1d7fea;padding:0 3px;}
+
+.bd_mid{border-left:6px solid #fff;min-height:500px;with:3%;}
+.bd_mid p{top:0;left:-10px;}
+
+.bd_right{width:75%;padding-left:3%;}
+.dropdown{width:100%;margin-bottom:20px;font-size:18px;}
+.dropdown dl{padding: 10px 4%;line-height: 29px;padding-top: 7px;width: 50%;}
+.dropdown dl dt{word-break:break-all;}
+.dropdown dl dd{color:#888;word-break:break-all;padding-top:5px;}
+.company{background:#fff; }
+.company .bd_this_com dd{font-size:16px;}
+.bd_fx{top:25px;right:5%;}
+
+.dropdown dl dd{color:#888;word-break:break-all;padding-top:5px;}
+.dropdown .dropdown-menu dl{border-bottom:1px dashed #eee;border-top:1px dashed #eee;width:92%;}
+.dropdown .dropdown-menu dl dd{float:left;}
+.dropdown dl{padding:10px 4%;line-height:29px;padding-top:7px;width:70%;}
+.dropdown-menu dt{line-height:60px;float:left;width:60%;}
+.dropdown-menu dd{top:12px;right:10px;width:72px;padding-top:5px;}
+.dropdown-menu dd input{font-size:18px;font-family:microsoft yahei;color:#fff;background:#1d7fea;border-radius:4px;padding:10px 18px;}
+
+
+
+/**************************************/
+.shenb_year .l_s{left:0;top:0;}
+.shenb_year .r_s{right:0;top:0;}
+.yearlist{height:60px;background:#eeeeee;overflow:hidden;}
+.yearlist li{float:left;width:18%;text-align:center;line-height:60px;font-size:20px;display:inline-block;}
+.yearlist li a{display:block;}
+.yearlist li a:hover,.yearlist li a.ye_click{height:56px;line-height:56px;border-bottom:4px solid #3f88fb;color:#3f88fb;}
+
+.month_line li{float:left;width:16.2%;padding:12px 0;border-right:1px solid #ddd;border-bottom:1px solid #ddd;background:#fff;font-size:18px;overflow:hidden;}
+.month_line li b,.month_line li span{display:block;text-align:center;width:100%;line-height:1.6 ;}
+.month_line li b{font-weight:lighter;}
+.month_line li a{color:#aaa;}
+.month_line li a:hover,.month_line li a.mo_click{color:#3f88fb;}
+.month_line li span{font-size:14px;}
+
+.shenb_company{padding-top:34px;width:88%;margin:0 auto;}
+.shenb_company a.altype{width:82%;height:65px;background:#fff url(../images/sjicon.png) no-repeat 95% center;display:block;font-size:18px;line-height:65px;text-indent:15px;border-radius:5px;padding-right:18%;overflow:hidden;}
+.allist{display:none;}
+.allist a{display:block;height:50px;font-size:18px;line-height:50px;text-indent:15px;background:#fff;border-bottom:1px dashed #ddd;overflow:hidden;width:100%;}
+.allist a:hover{background:#ddd;}
+.shenb_search{padding-top:35px;}
+.shenb_search input.shenb_search_btn,.invoice_line_btn .invoic_btn{font-size:18px;text-align:center;color:#fff;line-height:58px;height:58px;background:#3f88fb;border-radius:5px;font-family:microsoft yahei;width:100%; cursor:pointer;}
+.shenb_search input.shenb_search_btn:hover,.invoice_line_btn .invoic_btn:hover{font-weight:bold;}
+
+
+/*************************/
+
+.invoice_Img{background:url(../images/invoice-img.jpg) center center;height:200px;}
+.invoice_info{height:263px;border:1px solid #ddd;background:#fff;width:88%;margin:0 auto;margin-top:30px;border-radius:5px;}.invoice_line{height:65px;border-bottom:1px dashed #eee;}
+.invoice_line input.invoic_txt{font-size:18px;line-height:65px;height:65px;font-family:microsoft yahei;text-indent:15px;color:#aaa;width:100%; outline:none;}
+.invoice_line_btn{padding-top:35px;width:88%;margin:0 auto;}
+
+.invoice_info .invoice_line input.invoic_yz_txt{width:80%;}
+.invoice_info .invoice_line input.invoic_yz_txt,.invoice_info .invoice_line span{float:left;}
+.invoice_info .invoice_line span{display:block;width:19%;text-align:center;height:45px;padding-top:9px;}
+.invoice_info .invoice_line span img{width:90%;height:45px;background:#eee;}
+
+.shb_info_list{background:#fff;font-size:18px;}
+.shb_info_line dt h4{padding-left:4.5%;width:45%;}
+.shb_info_line dd{line-height:2.2;padding:0 4.5%;border-bottom:1px solid #ddd;color:#888;clear:both;}
+.shb_info_line dt{height:59px;background:#ececec;line-height:59px;}
+.shb_info_line dt h4,.shb_info_line dt span{float:left;}
+.shb_info_line dt h4{padding-left:4.5%;width:56%;}
+.shb_info_line dt span{padding-right:4.5%;}
+.coll{padding-bottom:60px;}
+
+.more a{display:block;width:100%;height:50px;line-height:50px;background:#ddd;border-top:1px solid #ddd;font-size:18px;text-align:center;position:fixed;bottom:0;}
+.more a:hover{background:#eee;font-weight:bold;}
+
+.bind_info{padding:25px 5%;}
+.bind_info dt{font-size:20px;font-weight:bold;}
+.bind_info dd{font-size:18px;line-height:1.8;padding-top:10px;}
+.bind_info dd a{color:#1d7fea}
+.bind_info dd img{padding-top:10px;}

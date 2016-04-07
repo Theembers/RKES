@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wke.webapp.persistence.demo.Demo002Mapper">
+
+	<select id="getWeb" resultType="com.wke.webapp.bo.demo.WebBO"
+		parameterType="com.wke.webapp.bo.demo.WebBO">
+		SELECT *
+		FROM t_pt_demo_web WHERE 1=1
+		<if test="webname != null and webname != '' ">
+			AND webname like "%"#{webname}"%"
+		</if>
+		ORDER BY jointime DESC
+		LIMIT #{from}, #{to}
+	</select>
+
+	<select id="getWebCnt" resultType="int" parameterType="com.wke.webapp.bo.demo.WebBO">
+		SELECT count(0)
+		FROM t_pt_demo_web WHERE 1=1
+		<if test="webname != null and webname != '' ">
+			AND webname like "%"#{webname}"%"
+		</if>
+	</select>
+
+	<insert id="addWeb" parameterType="com.wke.webapp.bo.demo.WebBO"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO t_pt_demo_web
+		(webname,weburl,code, url_re,title_re,context_re,jointime)
+		VALUES
+		(#{webname},#{weburl},#{code},#{url_re},#{title_re},#{context_re},NOW())
+	</insert>
+
+	<delete id="delWeb" parameterType="int">
+		DELETE FROM t_pt_demo_web
+		where id = #{id}
+	</delete>
+
+	<update id="workWeb" parameterType="map">
+		UPDATE t_pt_demo_web
+		SET
+		<if test="yxbj == 1 ">
+			yxbj=0
+		</if>
+		<if test="yxbj == 0 ">
+			yxbj=1
+		</if>
+		WHERE id=#{id}
+	</update>
+
+	<select id="gettheweb" resultType="com.wke.webapp.bo.demo.WebBO"
+		parameterType="int">
+		SELECT *
+		FROM t_pt_demo_web WHERE id=#{id}
+	</select>
+
+	<update id="editWeb" parameterType="com.wke.webapp.bo.demo.WebBO">
+		UPDATE t_pt_demo_web
+		SET
+		webname = #{webname},
+		weburl = #{weburl},
+		code = #{code},
+		url_re
+		=#{url_re},
+		title_re =#{title_re},
+		context_re =#{context_re}
+		WHERE
+		id=#{id}
+	</update>
+
+	<select id="getcodelist" resultType="com.wke.webapp.bo.demo.WebBO">
+		SELECT * FROM t_pt_code
+	</select>
+
+	<select id="getNews" resultType="com.wke.webapp.bo.demo.NewsBO"
+		parameterType="com.wke.webapp.bo.demo.NewsBO">
+		SELECT n.*,w.webname
+		FROM t_pt_news n
+		left join t_pt_demo_web w
+		on n.hostid=w.id
+		WHERE 1=1
+		<if test="keywords != null and keywords != '' ">
+			AND keywords like "%"#{keywords}"%"
+		</if>
+		ORDER BY jointime DESC
+		LIMIT #{from}, #{to}
+	</select>
+
+	<select id="getNewsCnt" resultType="int"
+		parameterType="com.wke.webapp.bo.demo.NewsBO">
+		SELECT count(0)
+		FROM t_pt_news WHERE 1=1
+		<if test="keywords != null and keywords != '' ">
+			AND keywords like "%"#{keywords}"%"
+		</if>
+	</select>
+
+	<select id="gettheNews" parameterType="int"
+		resultType="com.wke.webapp.bo.demo.NewsBO">
+		SELECT *
+		FROM t_pt_news
+		WHERE ID = #{id};
+	</select>
+</mapper>

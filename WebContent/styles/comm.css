@@ -1,0 +1,598 @@
+.img {
+	width: 290px;
+	height: 290px;
+	border: 1px solid #fff;
+}
+
+.ws {
+	padding-top: 15px;
+}
+
+.wz {
+	font-size: 14px;
+	padding-left: 20px;
+	line-height: 42px;
+	display: none
+}
+
+.wz span {
+	padding: 0 10px;
+}
+
+.search {
+	width: 331px;
+	height: 40px;
+	border: 1px solid #ddd;
+}
+
+.search input {
+	float: left;
+}
+
+.s_txt {
+	width: 288px;
+	height: 40px;
+	line-height: 40px;
+	font-family: microsoft yahei;
+	color: #dddddd;
+	text-indent: 3px;
+}
+
+.s_btn {
+	background: url(../images/search.png) no-repeat;
+	width: 42px;
+	height: 40px;
+}
+
+.add {
+	margin: 0 15px;
+}
+
+.add .addbtn {
+	color: #fff;
+	font-size: 14px;
+	font-family: microsoft yahei;
+	width: 67px;
+	height: 42px;
+	text-align: center;
+	line-height: 42px;
+	background: #FFB800;
+}
+
+.usr_tab {
+	padding-top: 15px;
+	font-size: 14px;
+}
+
+.usr_tab th, .usr_tab td {
+	height: 48px;
+	padding: 0px 10px;
+}
+
+.usr_tab th {
+	color: #4f4f4f;
+	background: #ddd;
+	text-align: center
+}
+
+.usr_tab td {
+	border-bottom: 1px dashed #ddd;
+	word-warp: break-word;
+	word-break: break-all;
+}
+
+.usr_tab td span {
+	padding: 0 3px;
+}
+
+.fenye {
+	padding-top: 25px;
+	padding-left: 130px;
+}
+
+.fenye a, .fenye span {
+	display: block;
+	float: left;
+	margin-right: 12px;
+}
+
+.fenye a {
+	background: #ff;
+	border: 1px solid #ddd;
+	text-align: center;
+	line-height: 26px;
+	color: #fff;
+}
+
+.fenye a:hover {
+	background: #347fdb;
+	color: #fff;
+	border: 1px solid #f3e8e8;
+}
+
+.fenye a {
+	width: 26px;
+	height: 26px;
+}
+
+.fenye a.pre {
+	width: 61px;
+	height: 26px;
+}
+
+.fenye span {
+	line-height: 26px;
+}
+
+.fenye span b, .fenye span i {
+	color: #FFB800;
+	padding: 0 8px;
+	font-weight: lighter;
+}
+
+.fy1 {
+	float: right;
+	margin-right: 50px;
+}
+
+.customtablehover {
+	background: #347fdb;
+}
+
+/******************************edit*********************************************/
+.edit {
+	padding: 10% 10%;
+}
+
+.edit .editline {
+	clear: both;
+	line-height: 32px;
+	padding-top: 15px;
+	font-size: 14px;
+}
+
+.edit .editline label, .edit .editline input, .edit .editline select,
+	.edit .editline i, .editline textarea, .edit .editline i {
+	float: left;
+}
+
+.edit .editline label {
+	width: auto;
+	display: block;
+}
+
+.edit .editline input.e_txt {
+	color: #fff;
+	float: left;
+	padding-right: 1px;
+	height: 30px;
+	border: 1px solid #fff;
+	background: #4f4f4f;
+	line-height: 30px;
+	text-indent: 3px;
+	width: 300px;
+}
+
+.edit .editline input.e_txt1 {
+	width: 650px;
+}
+
+.edit .editline i.col1 {
+	color: #F03;
+	padding-left: 6px;
+}
+
+.edit .editline select {
+	width: 303px;
+	height: 32px;
+	border: 1px solid #fff;
+	background: #4f4f4f;
+	color: #fff;
+}
+
+.edit .editline .backbtn {
+	background: #EDAA18;
+	padding: 0 30px;
+	height: 35px;
+	text-align: center;
+	color: #4f4f4f;
+	font-family: microsoft yahei;
+	font-size: 14px;
+	margin-left: 25px;
+	margin-left: 25px;
+}
+
+.edit .editline .addbtn {
+	background: #3f9be0;
+	padding: 0 30px;
+	width: 85px;
+	height: 35px;
+	text-align: center;
+	color: #fff;
+	font-family: microsoft yahei;
+	font-size: 14px;
+	margin-left: 25px;
+}
+
+.edit .editline .modifybtn {
+	background: #f1f1f1;
+	padding: 0 30px;
+	height: 35px;
+	text-align: center;
+	color: #4f4f4f;
+	font-family: microsoft yahei;
+	font-size: 14px;
+	margin-left: 40%;
+}
+
+.edit .editline .delbtn {
+	background: #8f8f8f;
+	border-radius: 3px;
+	padding: 0 30px;
+	width: 85px;
+	height: 35px;
+	text-align: center;
+	color: #fff;
+	font-family: microsoft yahei;
+	font-size: 14px;
+	margin-left: 25px;
+}
+
+.edit .editline .sckbtn {
+	background: #b3a397;
+	border-radius: 3px;
+	padding: 0 30px;
+	height: 35px;
+	text-align: center;
+	color: #fff;
+	font-family: microsoftyahei;
+	font-size: 14px;
+	margin-left: 25px;
+}
+
+.edit .editline .shbtn {
+	background: #cfce38;
+	border-radius: 3px;
+	padding: 0 30px;
+	height: 35px;
+	text-align: center;
+	color: #fff;
+	font-family: microsoftyahei;
+	font-size: 14px;
+	margin-left: 25px;
+}
+
+.edit .editline .btgbtn {
+	background: #ce4a4a;
+	border-radius: 3px;
+	padding: 0 30px;
+	height: 35px;
+	text-align: center;
+	color: #fff;
+	font-family: microsoftyahei;
+	font-size: 14px;
+	margin-left: 25px;
+}
+
+.edit .editline .thbtn {
+	background: #225491;
+	border-radius: 3px;
+	padding: 0 30px;
+	height: 35px;
+	text-align: center;
+	color: #fff;
+	font-family: microsoftyahei;
+	font-size: 14px;
+	margin-left: 25px;
+}
+
+.edit .editline .ckbtn {
+	background: #347fdb;
+	border-radius: 3px;
+	padding: 0 30px;
+	height: 35px;
+	text-align: center;
+	color: #fff;
+	font-family: microsoftyahei;
+	font-size: 14px;
+	margin-left: 25px;
+}
+
+.edit .lastli input:hover {
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.edit .firsteditline {
+	height: 32px;
+}
+
+.edit .editline.lastli {
+	padding-top: 20px;
+}
+
+.edit .editline textarea {
+	color: #fff;
+	width: 537px;
+	height: 100px;
+	overflow: hidden;
+	line-height: 1.6;
+	font-family: microsoft yahei;
+	border: 1px solid #ddd;
+	background: #4f4f4f;
+}
+
+.edit .editline select.wechat_no {
+	width: 300px;
+}
+
+.editline span, .editline i {
+	float: left;
+	padding: 0 5px;
+}
+
+.edit .editline input.time_txt {
+	width: 200px;
+}
+
+.editline span {
+	font-family: 14px;
+	color: #888;
+	line-height: 32px;
+}
+
+.editline .remarks {
+	float: left;
+}
+
+.editline .remarks a, .editline .remarks textarea {
+	display: block;
+	clear: both;
+}
+
+.editline .remarks a {
+	width: 200px;
+	height: 32px;
+	border: 1px solid #c8d3db;
+	background: #d7e8f5;
+	text-indent: 3px;
+	margin-bottom: 10px;
+}
+
+#js, .tree {
+	line-height: 14px;
+	float: left;
+	width: 655px;
+	height: 280px;
+	overflow-y: auto;
+	border: 1px solid #ddd;
+	padding: 10px 0px 10px 3px;
+}
+
+.keywords {
+	line-height: 50px;
+	text-align: center;
+	float: left;
+	width: 655px;
+	height: 310px;
+	overflow-y: auto;
+	border: 1px solid #ddd;
+	padding: 30px 3px 0px 3px;
+}
+
+.treekw {
+	line-height: 14px;
+	float: left;
+	width: 655px;
+	overflow-y: auto;
+	border: 1px solid #ddd;
+	padding: 10px 0px 10px 3px;
+}
+
+#js {
+	pddding: 10px 20px;
+	height: 260px;
+	width: 615px;
+}
+
+#js input {
+	float: none;
+}
+
+#js span {
+	height: 30px;
+	line-height: 30px;
+	color: #fff;
+}
+
+.addtree, .modtree, .deltree {
+	float: left;
+	background: url(../images/big.png) no-repeat 0px 0px;
+	width: 13px;
+	height: 13px;
+	cursor: pointer;
+}
+
+.modtree {
+	background: url(../images/big.png) no-repeat -31px 0px;
+	margin-left: 3px;
+}
+
+.deltree {
+	background: url(../images/big.png) no-repeat -64px 0px;
+	margin-left: 3px;
+}
+
+.addtree:hover {
+	background: url(../images/big.png) no-repeat -16px 0px;
+}
+
+.modtree:hover {
+	background: url(../images/big.png) no-repeat -46px 0px;
+}
+
+.deltree:hover {
+	background: url(../images/big.png) no-repeat -77px 0px;
+}
+
+/****************************search*******************************************/
+.detail_search {
+	margin-top: 15px;
+	width: 100%;
+	background: #ddd;
+	border: 15px;
+	border-right: none;
+}
+
+.d_search_list {
+	padding: 0 0 20px 20px;
+}
+
+.d_search_line {
+	float: left;
+	padding: 20px 10px 0 0;
+	height: 32px;
+	line-height: 32px;
+}
+
+.d_search_line label, .d_search_line input, .d_search_line select,
+	.d_search_line span {
+	float: left;
+	color: #4f4f4f;
+}
+
+.d_search_line label {
+	display: block;
+	padding-right: 10px;
+	font-size: 14px;
+}
+
+.d_search_line input.d_search_txt {
+	width: 200px;
+	height: 30px;
+	border: 1px solid #4f4f4f;
+	background: #ddd;
+	line-height: 30px;
+	text-indent: 3px;
+}
+
+.d_search_line select {
+	width: 135px;
+	height: 30px;
+}
+
+.d_search_line select.gender {
+	width: 80px;
+}
+
+.d_search_btn {
+	padding-left: 300px;
+	padding-top: 18px;
+}
+
+.d_search_btn input.search_btn {
+	width: 120px;
+	height: 36px;
+	background: #FFB800;
+	text-align: center;
+	line-height: 36px;
+	font-family: microsoft yahei;
+	color: #fff;
+	float: left;
+}
+
+.d_search_btn input.search_btn1 {
+	background: #347fdb;
+	margin-left: 6px;
+}
+
+.d_search_btn input.search_btn:hover {
+	font-weight: bold;
+}
+
+.add label {
+	padding-left: 10px;
+	color: #888;
+}
+
+/****************************info****************************************/
+.info_personal {
+	padding: 100px 0 0 54px;
+	*padding: 30px 0 0 54px;
+}
+
+.info_personal_right {
+	padding-left: 25px;
+	width: 535px;
+}
+
+.info_personal_right li {
+	width: 174px;
+	float: left;
+	line-height: 45px;
+	font-size: 14px;
+	color: #666;
+}
+
+.info_personal_right li span {
+	color: #444;
+}
+
+.info_personal_right li.i_p_first, .info_personal_right li.i_p_last {
+	width: 100%;
+}
+
+.info_btn {
+	padding-top: 75px;
+	*padding-top: 30px;
+}
+
+.info_btn .info_back_btn {
+	font-family: microsoft yahei;
+	background: #347fdb;
+	font-size: 14px;
+	width: 97px;
+	height: 37px;
+	color: #fff;
+	text-align: center;
+	line-height: 37px;
+	border-radius: 4px;
+}
+
+div.allist select {
+	border: 0px;
+	height: 40px;
+	width: 287px;
+	float: left;
+	font-size: 14px;
+	color: #666;
+}
+
+div.allist select option {
+	front-size: 18px;
+}
+
+.con_tit {
+	padding: 30px 0 0 20px;
+}
+
+.con_tit li {
+	float: left;
+	width: 120px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+
+.con_tit li a {
+	color: #444;
+	display: block;
+	width: 100%;
+	height: 100%;
+	font-size: 14px;
+}
+
+.con_tit li a:hover, .con_tit li a.dthover {
+	background: #5d80ab;
+	color: #fff;
+}

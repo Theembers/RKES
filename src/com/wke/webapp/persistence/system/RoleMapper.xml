@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wke.webapp.persistence.system.RoleMapper">
+
+	<select id="getRoleContent" resultType="com.wke.webapp.bo.system.RoleBO"
+		parameterType="com.wke.webapp.bo.system.RoleBO">
+		SELECT id, jsmc, jsms, lrsj
+		FROM T_XT_JS
+		<if test="jsmc != null and jsmc != ''">
+			WHERE JSMC like #{jsmc}
+		</if>
+		order by lrsj desc
+		limit #{from}, #{to}
+	</select>
+
+	<select id="getRoleCnt" resultType="int"
+		parameterType="com.wke.webapp.bo.system.RoleBO">
+		SELECT COUNT(0)
+		FROM T_XT_JS
+		<if test="jsmc != null and jsmc != ''">
+			WHERE JSMC like #{jsmc}
+		</if>
+	</select>
+
+	<insert id="addRole" parameterType="com.wke.webapp.bo.system.RoleBO"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO T_XT_JS
+		(JSMC, JSMS, LRSJ)
+		VALUES
+		(#{jsmc},#{jsms},NOW())
+	</insert>
+
+	<insert id="addRoleGns" parameterType="com.wke.webapp.bo.system.RoleGnsBO">
+		INSERT INTO T_XT_JS_GNS
+		<trim prefix="values" suffixOverrides=",">
+			<foreach collection="gnid" item="gnid" separator=",">
+				(#{id},#{gnid})
+			</foreach>
+		</trim>
+	</insert>
+
+	<delete id="delRole" parameterType="int">
+		DELETE FROM T_XT_JS WHERE ID = #{id}
+	</delete>
+
+	<delete id="delRoleGns" parameterType="int">
+		DELETE FROM T_XT_JS_GNS WHERE JSID = #{id}
+	</delete>
+
+	<select id="getRole" parameterType="int"
+		resultType="com.wke.webapp.bo.system.RoleBO">
+		SELECT id,jsmc,jsms,lrsj
+		FROM T_XT_JS
+		WHERE ID = #{id}
+	</select>
+
+	<select id="getRoleGns" parameterType="int" resultType="int">
+		SELECT gnid
+		FROM T_XT_JS_GNS
+		WHERE JSID = #{id}
+	</select>
+
+	<select id="getGns" resultType="com.wke.webapp.bo.system.TreeNode">
+		SELECT id, GNMC as content, PID AS fatherId
+		FROM T_XT_GNS
+		WHERE SFYX = 1
+		ORDER BY ID;
+	</select>
+
+	<update id="updateRole" parameterType="com.wke.webapp.bo.system.RoleBO">
+		UPDATE T_XT_JS
+		SET
+		JSMC = #{jsmc},
+		JSMS = #{jsms},
+		LRSJ = now()
+		WHERE ID=#{id}
+	</update>
+
+	<select id="getUserRole" resultType="int" parameterType="int">
+		SELECT COUNT(0)
+		FROM T_XT_USER_JS
+		WHERE JSID = #{id}
+	</select>
+
+</mapper>
